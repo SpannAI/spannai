@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <defs>
+    <linearGradient id="gT" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4FB3C7" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#4FB3C7" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#4FB3C7" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="gG" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E8B86D" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#E8B86D" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#E8B86D" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="gR" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E54B5C" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#E54B5C" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#E54B5C" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke-width="1.1">
+    <path d="M-60,140 C200,70 420,270 700,160 S1100,70 1280,180" stroke="url(#gT)"/>
+    <path d="M-60,190 C220,130 430,300 720,210 S1100,140 1280,240" stroke="url(#gT)"/>
+    <path d="M-60,240 C240,180 460,340 740,260 S1100,200 1280,290" stroke="url(#gT)"/>
+    <path d="M-60,300 C200,240 470,400 760,310 S1100,240 1280,340" stroke="url(#gG)"/>
+    <path d="M-60,360 C260,300 490,460 770,360 S1100,290 1280,400" stroke="url(#gG)"/>
+    <path d="M-60,420 C220,360 510,520 780,420 S1100,360 1280,460" stroke="url(#gR)"/>
+    <path d="M-60,480 C260,420 520,560 800,480 S1100,420 1280,520" stroke="url(#gR)"/>
+  </g>
+</svg>

@@ -1,0 +1,604 @@
+:root {
+  --bg: #0d1117;
+  --bg-deep: #080b10;
+  --bg-elevated: #161b22;
+  --bg-card: #1c2230;
+  --bg-card-grad: #232c3a;
+  --bg-hover: #28303f;
+  --border: #2d3748;
+  --border-light: #3a4556;
+  --text: #e6edf3;
+  --text-muted: #a3adba;
+  --text-dim: #7d8896;
+  --brand-teal: #116677;
+  --brand-teal-bright: #4FB3C7;
+  --brand-red: #800A14;
+  --brand-red-bright: #E54B5C;
+  --accent: #E8B86D;
+  --accent-dim: #b8924f;
+  --max-width: 1100px;
+  --radius: 8px;
+  --radius-lg: 14px;
+  --shadow-card: 0 6px 20px rgba(0, 0, 0, 0.45);
+  --shadow-card-hover: 0 10px 30px rgba(79, 179, 199, 0.18), 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg);
+  /* Layered backgrounds: subtle dot grid + multi-color gradient mesh */
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28'><circle cx='14' cy='14' r='0.7' fill='%234FB3C7' opacity='0.18'/></svg>"),
+    radial-gradient(ellipse 1100px 700px at 12% -8%, rgba(17, 102, 119, 0.22), transparent 60%),
+    radial-gradient(ellipse 900px 600px at 95% 8%, rgba(128, 10, 20, 0.16), transparent 60%),
+    radial-gradient(ellipse 1000px 700px at 70% 95%, rgba(232, 184, 109, 0.10), transparent 65%),
+    radial-gradient(ellipse 700px 500px at 25% 70%, rgba(79, 179, 199, 0.08), transparent 60%);
+  background-attachment: fixed;
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--brand-teal-bright);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+a:hover { color: var(--accent); text-decoration: underline; }
+
+h1, h2, h3, h4 {
+  color: var(--text);
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: 2.4rem; margin-bottom: 1rem; }
+h2 { font-size: 1.7rem; margin: 2rem 0 1rem; color: var(--brand-teal-bright); }
+h3 { font-size: 1.2rem; margin: 1.5rem 0 0.6rem; color: var(--accent); }
+
+p { margin-bottom: 1rem; color: var(--text-muted); }
+
+ul, ol { margin: 0.5rem 0 1.2rem 1.4rem; color: var(--text-muted); }
+li { margin-bottom: 0.4rem; }
+
+code {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.1em 0.4em;
+  font-family: "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.92em;
+  color: var(--accent);
+}
+
+/* Header / Nav */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(13, 17, 23, 0.88), rgba(13, 17, 23, 0.78));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  /* thin gradient accent line under header */
+  box-shadow: 0 1px 0 0 transparent;
+}
+.site-header::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -1px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(79, 179, 199, 0.5), rgba(232, 184, 109, 0.4), rgba(229, 75, 92, 0.4), transparent);
+}
+
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.9rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Subtle frosted backdrop: semi-transparent cream tint over the dark page,
+   with a soft blur of the pattern behind. Just enough to lift the dark
+   brand colors off the near-black background. */
+.logo-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  background: rgba(245, 238, 220, 0.10);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  padding: 5px 11px;
+  border-radius: 8px;
+  border: 1px solid rgba(245, 238, 220, 0.12);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+  transition: background 0.18s ease, border-color 0.18s ease, transform 0.15s ease;
+}
+.logo-link:hover {
+  text-decoration: none;
+  background: rgba(245, 238, 220, 0.18);
+  border-color: rgba(245, 238, 220, 0.22);
+  transform: translateY(-1px);
+}
+.logo-link img { height: 30px; width: auto; display: block; }
+
+nav.primary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+nav.primary a {
+  color: var(--text-muted);
+  font-size: 0.93rem;
+  font-weight: 500;
+  padding: 0.45rem 0.8rem;
+  border-radius: 6px;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+nav.primary a:hover {
+  color: var(--text);
+  background: var(--bg-card);
+  text-decoration: none;
+}
+nav.primary a.active {
+  color: var(--brand-teal-bright);
+  background: var(--bg-card);
+}
+
+/* Layout */
+main {
+  flex: 1;
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 3rem;
+  position: relative;
+}
+
+/* Hero (landing page) */
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 3.5rem 1rem 2.5rem;
+  margin-bottom: 1rem;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 700px 320px at 50% 30%, rgba(17, 102, 119, 0.22), transparent 70%),
+    linear-gradient(180deg, rgba(28, 34, 48, 0.55), rgba(13, 17, 23, 0.0));
+  border: 1px solid var(--border);
+}
+/* Decorative flow pattern behind the hero */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../assets/pattern-flow.svg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 0;
+}
+/* Soft top-edge gradient accent */
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 10%; right: 10%; top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(79, 179, 199, 0.7), rgba(232, 184, 109, 0.5), transparent);
+}
+.hero > * { position: relative; z-index: 1; }
+
+/* Hero logo sits on a semi-transparent cream wash with a backdrop blur —
+   subtle enough to feel like the logo is on the dark page, opaque enough
+   that the dark brand colors (#116677 SPANN, #800A14 .AI) still read. */
+.hero-logo-wrap {
+  display: inline-block;
+  background: rgba(245, 238, 220, 0.12);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(245, 238, 220, 0.14);
+  border-radius: 16px;
+  padding: 1.4rem 2rem;
+  margin: 0 auto 1.75rem;
+  box-shadow:
+    0 14px 38px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+.hero-logo {
+  max-width: 460px;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.hero h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+.hero .legal-name {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.tagline {
+  font-size: 1.5rem;
+  color: var(--accent);
+  font-style: italic;
+  margin: 1.5rem 0 2rem;
+  font-weight: 500;
+}
+.intro {
+  max-width: 720px;
+  margin: 0 auto 2rem;
+  font-size: 1.08rem;
+  color: var(--text-muted);
+}
+
+/* Service cards grid (landing) */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin: 2.5rem 0 1rem;
+}
+/* Locked 2-column variant — used for the 2x2 "What I do" grid and the
+   2-card "Background" row on the landing page. Collapses to a single
+   column on narrow viewports for readability. */
+.card-grid.cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (max-width: 600px) {
+  .card-grid.cols-2 { grid-template-columns: 1fr; }
+}
+
+.card {
+  position: relative;
+  background:
+    linear-gradient(135deg, var(--bg-card) 0%, var(--bg-card-grad) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.25s ease;
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  isolation: isolate; /* keep ::before/::after stacking clean */
+}
+/* Faint mesh texture inside cards */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../assets/pattern-mesh.svg");
+  background-size: 60px 52px;
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 0;
+  mask-image: linear-gradient(135deg, rgba(0,0,0,0.9), rgba(0,0,0,0.0) 70%);
+  -webkit-mask-image: linear-gradient(135deg, rgba(0,0,0,0.9), rgba(0,0,0,0.0) 70%);
+}
+/* Hover highlight: a soft warm radial wash from top-right */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 85% 0%, rgba(232, 184, 109, 0.14), transparent 55%),
+    radial-gradient(circle at 0% 100%, rgba(79, 179, 199, 0.10), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+.card > * { position: relative; z-index: 1; }
+
+.card:hover {
+  text-decoration: none;
+  transform: translateY(-3px);
+  border-color: rgba(79, 179, 199, 0.65);
+  box-shadow: var(--shadow-card-hover);
+}
+.card:hover::after { opacity: 1; }
+.card h3 {
+  margin-top: 0;
+  color: var(--brand-teal-bright);
+  transition: color 0.2s ease;
+}
+.card:hover h3 { color: var(--accent); }
+.card p { color: var(--text-muted); margin-bottom: 0; }
+
+/* Top gradient accent bar — a real element, since CSS pseudos are already
+   used for the mesh texture and the hover wash. */
+.card { background-clip: padding-box; }
+.card-top {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--brand-teal-bright), var(--accent) 55%, var(--brand-red-bright));
+  opacity: 0.55;
+  transition: opacity 0.2s ease;
+  z-index: 2;
+}
+.card:hover .card-top { opacity: 1; }
+
+/* Subpages */
+.page-header {
+  position: relative;
+  border-bottom: 1px solid var(--border);
+  padding: 0.4rem 1.5rem 1.4rem 1.5rem;
+  margin: 0 -1.5rem 2rem -1.5rem;
+  overflow: hidden;
+}
+.page-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../assets/pattern-flow.svg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.22;
+  pointer-events: none;
+  z-index: 0;
+  mask-image: linear-gradient(180deg, rgba(0,0,0,1), rgba(0,0,0,0.0) 95%);
+  -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,1), rgba(0,0,0,0.0) 95%);
+}
+.page-header > * { position: relative; z-index: 1; }
+
+.page-header .eyebrow {
+  color: var(--brand-red-bright);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+.page-header h1 { margin-bottom: 0.4rem; }
+.page-header .lead {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 720px;
+}
+
+.content {
+  max-width: 760px;
+}
+
+.content section {
+  margin-bottom: 2rem;
+}
+
+/* Highlight panel */
+.panel {
+  position: relative;
+  background: linear-gradient(135deg, var(--bg-card), var(--bg-card-grad));
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--brand-teal-bright);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.4rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../assets/pattern-mesh.svg");
+  background-size: 60px 52px;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+  mask-image: linear-gradient(135deg, rgba(0,0,0,0.9), rgba(0,0,0,0.0) 80%);
+  -webkit-mask-image: linear-gradient(135deg, rgba(0,0,0,0.9), rgba(0,0,0,0.0) 80%);
+}
+.panel > * { position: relative; z-index: 1; }
+
+.panel.accent { border-left-color: var(--accent); }
+.panel.red { border-left-color: var(--brand-red-bright); }
+.panel h3 { margin-top: 0; }
+.panel p:last-child { margin-bottom: 0; }
+
+/* Citation line inside a highlight panel */
+.cite {
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--text-dim);
+  margin-top: 0.7rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--border);
+}
+.cite em { color: var(--text-muted); }
+
+/* CV / list blocks */
+.cv-block {
+  margin-bottom: 1.8rem;
+}
+.cv-block h3 {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.4rem;
+  margin-bottom: 0.8rem;
+  color: var(--brand-teal-bright);
+}
+.cv-entry {
+  margin-bottom: 0.9rem;
+}
+.cv-entry .role {
+  font-weight: 600;
+  color: var(--text);
+}
+.cv-entry .meta {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
+}
+
+/* Contact */
+.contact-card {
+  position: relative;
+  background: linear-gradient(135deg, var(--bg-card), var(--bg-card-grad));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  text-align: center;
+  max-width: 520px;
+  margin: 2rem auto;
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+.contact-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../assets/pattern-mesh.svg");
+  background-size: 60px 52px;
+  opacity: 0.15;
+  pointer-events: none;
+  mask-image: radial-gradient(circle at 50% 0%, rgba(0,0,0,0.85), rgba(0,0,0,0.0) 75%);
+  -webkit-mask-image: radial-gradient(circle at 50% 0%, rgba(0,0,0,0.85), rgba(0,0,0,0.0) 75%);
+}
+.contact-card > * { position: relative; z-index: 1; }
+.contact-card .email {
+  display: inline-block;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--brand-teal-bright);
+  margin: 1rem 0;
+  word-break: break-all;
+}
+.contact-card .email:hover { color: var(--accent); }
+
+/* Footer */
+.site-footer {
+  position: relative;
+  border-top: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(22, 27, 34, 0.6), rgba(8, 11, 16, 0.85));
+  margin-top: auto;
+}
+.site-footer::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: -1px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(79, 179, 199, 0.4), rgba(232, 184, 109, 0.3), transparent);
+}
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  color: var(--text-dim);
+  font-size: 0.88rem;
+}
+.footer-inner a { color: var(--text-muted); }
+
+/* Buttons / inline actions */
+.btn {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--brand-teal), #0d4f5d);
+  color: #fff;
+  padding: 0.7rem 1.4rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  border: 1px solid rgba(79, 179, 199, 0.5);
+  transition: background 0.18s ease, transform 0.15s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  box-shadow: 0 2px 8px rgba(17, 102, 119, 0.25);
+}
+.btn:hover {
+  background: linear-gradient(135deg, var(--brand-teal-bright), var(--brand-teal));
+  color: #0d1117;
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(79, 179, 199, 0.35);
+  border-color: var(--brand-teal-bright);
+}
+.btn.secondary {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border-light);
+  box-shadow: none;
+}
+.btn.secondary:hover {
+  background: var(--bg-card);
+  color: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 4px 14px rgba(232, 184, 109, 0.2);
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+/* Inline tags / chips */
+.chip {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--bg-elevated), var(--bg-card));
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin: 0.15rem 0.2rem 0.15rem 0;
+}
+
+/* Code example block */
+pre {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+  overflow-x: auto;
+  font-size: 0.9rem;
+  margin: 1rem 0;
+  line-height: 1.5;
+}
+pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: var(--text-muted);
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  h1 { font-size: 1.8rem; }
+  .hero h1 { font-size: 1.6rem; }
+  .tagline { font-size: 1.2rem; }
+  main { padding: 1.5rem 1rem 2rem; }
+  .header-inner { padding: 0.7rem 1rem; }
+  nav.primary { gap: 0; }
+  nav.primary a { padding: 0.4rem 0.55rem; font-size: 0.85rem; }
+  .logo-link { padding: 4px 9px; }
+  .logo-link img { height: 24px; }
+  .hero-logo-wrap { padding: 1rem 1.4rem; border-radius: 12px; }
+  .page-header { margin-left: -1rem; margin-right: -1rem; padding-left: 1rem; padding-right: 1rem; }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
