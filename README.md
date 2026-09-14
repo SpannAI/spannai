@@ -14,14 +14,16 @@ trackers — just plain HTML, CSS, and SVG.
 ├── energy.html            # Clean energy
 ├── nanotechnology.html    # Nanotechnology / nanomanufacturing
 ├── mcm.html               # COMAP MCM background
-├── about.html             # Team — bio & CV (URL kept as /about.html)
+├── about.html             # About — bio & CV
 ├── contact.html           # Contact (mailto:info@spann.ai)
+├── privacy.html           # Privacy policy (linked from the footer of every page)
 ├── css/
 │   └── style.css          # All site styling (dark mode, gradient mesh)
 ├── assets/
-│   ├── logo.svg           # Original brand SVG (#116677 / #800A14)
-│   ├── logo-dark.svg      # Brightened variant used on the dark site
+│   ├── logo.svg           # Brand wordmark (#116677 SPANN / #800A14 .AI)
 │   ├── favicon.svg
+│   ├── comsol-certified-consultant.png  # COMSOL-provided badge, used unmodified
+│   ├── SpannAI_Photo_small300.png       # Headshot on the About page (300x300)
 │   ├── pattern-flow.svg   # Decorative flowing-curves graphic (hero/headers)
 │   └── pattern-mesh.svg   # Subtle triangular-mesh texture (cards/panels)
 └── README.md
@@ -101,6 +103,15 @@ engine. Common things you may want to edit:
 - **MCM resources** — `mcm.html`. A "coming soon" placeholder is in
   place; replace with actual contestant resources after the 2026–2027
   school year begins.
+- **COMSOL Certified Consultant badge** — `assets/comsol-certified-consultant.png`
+  is COMSOL-provided artwork; display it unmodified (no recoloring, cropping,
+  or combining with other marks). The "Spann Engineering Consulting LLC is a
+  COMSOL Certified Consultant" statement with a link to the COMSOL Certified
+  Consultants section (on `index.html` and `ai-simulation.html`) is required by
+  the program agreement (§2.6(v)). Write COMSOL product names in plain text with
+  ® on first use (e.g. "COMSOL Multiphysics® simulation software"), never as a
+  possessive or plural. If the agreement ends, remove the badge and review all
+  COMSOL trademark references (§9.2).
 - **Email address** — currently `info@spann.ai`, referenced in every page's
   footer and on `contact.html`.
 - **Color palette & background patterns** — colors are defined as CSS

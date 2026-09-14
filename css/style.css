@@ -499,19 +499,44 @@ main {
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(79, 179, 199, 0.4), rgba(232, 184, 109, 0.3), transparent);
 }
+/* Compact, understated footer — no logo image; centered link row over a
+   small legal/contact line. */
 .footer-inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 1.5rem;
+  padding: 1.3rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  text-align: center;
+}
+.footer-nav {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  color: var(--text-dim);
-  font-size: 0.88rem;
+  justify-content: center;
+  gap: 0.3rem 1.1rem;
 }
-.footer-inner a { color: var(--text-muted); }
+.footer-nav a {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+.footer-nav a:hover { color: var(--accent); }
+.footer-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem 0.6rem;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+}
+.footer-meta a { color: var(--text-muted); }
+.footer-meta a:hover { color: var(--accent); }
+.footer-meta .sep { color: var(--border-light); }
+@media (max-width: 640px) {
+  .footer-meta .sep { display: none; }
+}
 
 /* Buttons / inline actions */
 .btn {
@@ -596,6 +621,98 @@ pre code {
   .logo-link img { height: 24px; }
   .hero-logo-wrap { padding: 1rem 1.4rem; border-radius: 12px; }
   .page-header { margin-left: -1rem; margin-right: -1rem; padding-left: 1rem; padding-right: 1rem; }
+}
+
+/* COMSOL Certified Consultant block: provided badge shown unmodified at
+   native size, beside the required program statement + link. */
+.certified {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem 1.5rem;
+  margin: 1.75rem auto 0;
+  padding: 1rem 1.25rem;
+  max-width: 720px;
+  background: linear-gradient(135deg, var(--bg-card), var(--bg-card-grad));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  text-align: left;
+}
+.certified img {
+  width: 202px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  flex: 0 0 auto;
+}
+.certified p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  flex: 1 1 260px;
+}
+.certified p strong { color: var(--text); }
+
+/* Small trademark attribution line */
+.trademark-note {
+  color: var(--text-dim);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  margin-top: 1.5rem;
+}
+
+/* Event / talk callout */
+.event {
+  position: relative;
+  background: linear-gradient(135deg, var(--bg-card), var(--bg-card-grad));
+  border: 1px solid rgba(232, 184, 109, 0.45);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.6rem;
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow-card-hover);
+}
+.event .eyebrow {
+  color: var(--brand-red-bright);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+.event h3 { margin-top: 0; color: var(--text); font-size: 1.25rem; }
+.event .when {
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+@media (max-width: 640px) {
+  .certified { text-align: center; }
+}
+
+/* Page header with a headshot (About page) */
+.page-header.with-photo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem 1.75rem;
+}
+.page-header.with-photo .page-header-text {
+  flex: 1 1 320px;
+  min-width: 0;
+}
+.headshot {
+  width: 168px;
+  height: 168px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex: 0 0 auto;
+  border: 3px solid rgba(245, 238, 220, 0.14);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+}
+@media (max-width: 640px) {
+  .headshot { width: 132px; height: 132px; }
 }
 
 /* Respect reduced motion */
