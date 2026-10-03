@@ -17,6 +17,9 @@ trackers — just plain HTML, CSS, and SVG.
 ├── about.html             # About — bio & CV
 ├── contact.html           # Contact (mailto:info@spann.ai)
 ├── privacy.html           # Privacy policy (linked from the footer of every page)
+├── spannbridge/
+│   └── index.html         # SpannBridge announcement, served at spann.ai/spannbridge
+│                          # (linked from index.html and ai-simulation.html)
 ├── css/
 │   └── style.css          # All site styling (dark mode, gradient mesh)
 ├── assets/
