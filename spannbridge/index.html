@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SpannBridge is free, open-source Windows software from Spann Engineering Consulting LLC. It connects the Chatbot window in COMSOL Multiphysics&reg; simulation software to Claude Code or OpenAI Codex, using your own Claude or ChatGPT subscription instead of an API key.">
+  <title>SpannBridge &middot; Spann Engineering Consulting LLC</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo-link" aria-label="Spann Engineering home">
+        <img src="../assets/logo.svg" alt="SPANN.AI">
+      </a>
+      <nav class="primary" aria-label="Primary">
+        <a href="../ai-simulation.html">AI &amp; Simulation</a>
+        <a href="../nanotechnology.html">Nanotech</a>
+        <a href="../energy.html">Clean Energy</a>
+        <a href="../medical.html">Medical</a>
+        <a href="../mcm.html">MCM</a>
+        <a href="../about.html">About</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <header class="page-header">
+      <p class="eyebrow">Announcement &middot; Free and open source</p>
+      <h1>SpannBridge</h1>
+      <p class="lead">
+        SpannBridge lets the Chatbot window in COMSOL Multiphysics&reg; 6.4 use the AI
+        subscription that you already pay for.  It runs either Claude Code on a Claude subscription
+        or OpenAI Codex on a ChatGPT plan, so you do not need an API key.  SpannBridge is free,
+        open-source software for Windows, published by Spann Engineering Consulting LLC under
+        the MIT License.
+      </p>
+    </header>
+
+    <article class="content">
+      <section>
+        <h2>What SpannBridge does</h2>
+        <p>
+          COMSOL Multiphysics&reg; 6.4 simulation software includes a Chatbot window.  The
+          Chatbot can connect to any AI service that accepts requests in the format of
+          OpenAI's chat API.  Such services normally charge for each request through an API key.
+        </p>
+        <p>
+          SpannBridge is a free helper script that runs on your PC.  The Chatbot connects to
+          SpannBridge as if it were an API service.  SpannBridge passes each question to the official
+          command-line program of your AI provider: Claude Code (<code>claude -p</code>) or OpenAI
+          Codex (<code>codex app-server</code>).  You sign in to that program with your own account.
+          With SpannBridge, you can:
+        </p>
+        <ul>
+          <li>Ask modeling questions inside COMSOL Multiphysics&reg;.</li>
+          <li>Ask for code and send it to run in the Java Shell.</li>
+          <li>Use the Java Shell to send error messages back for a fix.</li>
+          <li>Send Model Builder nodes and Graphics window snapshots to the Chatbot and ask about them.</li>
+        </ul>
+        <p>
+          SpannBridge is a helper for the Chatbot window, not an agent.  It never operates COMSOL Multiphysics&reg; by itself.
+          Nothing in your model changes until you click <strong>Send to Java Shell</strong> and <strong>Run</strong>.
+        </p>
+      </section>
+
+      <section>
+        <h2>Two editions for use with Claude and ChatGPT</h2>
+        <p>
+          SpannBridge comes as two separate editions, each in its own repository on GitHub.
+          Claude and ChatGPT have different rules for this kind of use, which can change.  The
+          two editions are separate so that a policy change at one provider does not affect the
+          other edition.
+        </p>
+        <div class="card-grid cols-2">
+          <a href="https://github.com/SpannAI/spannbridge-cli" class="card" target="_blank" rel="noopener">
+            <span class="card-top" aria-hidden="true"></span>
+            <h3>Claude Code edition</h3>
+            <p>
+              Connects the Chatbot window in COMSOL Multiphysics&reg; software to Claude Code,
+              using your Claude subscription instead of an API key.
+            </p>
+            <p>
+              <span class="chip">Claude Pro or Max</span>
+              <span class="chip">Python</span>
+            </p>
+            <p class="repo-url"><span class="nowrap">github.com/SpannAI/</span><wbr><span class="nowrap">spannbridge-cli</span></p>
+          </a>
+          <a href="https://github.com/SpannAI/spannbridge-appserver" class="card" target="_blank" rel="noopener">
+            <span class="card-top" aria-hidden="true"></span>
+            <h3>ChatGPT edition</h3>
+            <p>
+              Connects the Chatbot window in COMSOL Multiphysics&reg; software to OpenAI Codex,
+              using your ChatGPT plan instead of an API key.
+            </p>
+            <p>
+              <span class="chip">ChatGPT plan with Codex</span>
+              <span class="chip">Node.js</span>
+            </p>
+            <p class="repo-url"><span class="nowrap">github.com/SpannAI/</span><wbr><span class="nowrap">spannbridge-appserver</span></p>
+          </a>
+        </div>
+        <p style="margin-top: 1rem;">
+          Each repository has step-by-step instructions for Windows, a troubleshooting guide,
+          and an explanation of how SpannBridge works.  Report problems as issues in the
+          matching repository.
+        </p>
+      </section>
+
+      <section>
+        <h2>Before you use it</h2>
+        <div class="panel red">
+          <h3>Follow your organization's rules for work data</h3>
+          <p>
+            Everything you type or attach in the Chatbot goes to your AI provider, a third-party
+            company.  Many organizations restrict or forbid sending confidential, client,
+            proprietary, or export-controlled information to outside AI services.  Check your
+            organization's policy before you send work data.  SpannBridge does not filter,
+            redact, or block anything, and it sends nothing to Spann Engineering Consulting LLC.
+            Spann Engineering Consulting LLC also recommends that you turn off model training in
+            the privacy settings of your AI account.
+          </p>
+        </div>
+        <div class="panel red">
+          <h3>Check your AI provider's rules</h3>
+          <p>
+            SpannBridge is designed to stay within the providers' published rules as of October
+            2026.  But AI providers can change these rules.  If you read this from the future, check
+            that your AI provider still allows this.  The GitHub page explains how.
+          </p>
+        </div>
+        <div class="panel">
+          <h3>Windows only</h3>
+          <p>
+            The Chatbot window in COMSOL Multiphysics&reg; 6.4 runs only on Windows, so
+            SpannBridge is for Windows only.
+          </p>
+        </div>
+        <div class="panel accent">
+          <h3>Your work is yours</h3>
+          <p>
+            You may use SpannBridge free of charge, including for paid engineering work.
+            Spann Engineering Consulting LLC claims no ownership of anything you create with it
+            and accepts no liability for it.  Using SpannBridge requires no credit or
+            acknowledgment.  The conditions of the MIT License apply only when you copy or
+            publish SpannBridge's own code.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Get SpannBridge only from its official sources</h2>
+        <p>
+          Spann Engineering Consulting LLC publishes SpannBridge only on spann.ai and on GitHub
+          under <a href="https://github.com/SpannAI" target="_blank" rel="noopener">SpannAI</a>.
+          The website spannbridge.com redirects to this page with no plans to update separately.
+          SpannBridge has no dedicated social media accounts, and it is not published on PyPI, npm,
+          or any other package registry.  Do not download SpannBridge from any other site.  The MIT
+          License allows others to publish copies and modified versions, but Spann Engineering
+          Consulting LLC has not reviewed them.
+        </p>
+        <p>
+          SpannBridge is free.  It never asks for payment, passwords, or personal information.
+          It is distributed as readable source files, never as a compiled program such as an
+          .exe file.  You, or an AI assistant that you trust, can read the code to check what it
+          does before you run it.
+        </p>
+      </section>
+
+      <section>
+        <h2>Accelerate your early-stage R&amp;D</h2>
+        <p>
+          SpannBridge is a free tech demo.  Spann Engineering Consulting LLC uses simulation to
+          solve engineering problems and accelerate early-stage R&amp;D in
+          <a href="../energy.html">clean energy</a>, <a href="../medical.html">medical devices</a>,
+          and <a href="../nanotechnology.html">nanotechnology</a>.  A well-built model can answer
+          design questions before you commit to an expensive prototype.  If your team has an
+          engineering problem to solve, get in touch.
+        </p>
+        <div class="btn-row">
+          <a href="../contact.html" class="btn">Discuss a project</a>
+          <a href="../index.html" class="btn secondary">See all services</a>
+        </div>
+      </section>
+
+      <p class="trademark-note">
+        COMSOL, COMSOL Multiphysics, and the COMSOL logo are registered trademarks of COMSOL AB.
+        Anthropic, Claude, and Claude Code are trademarks of Anthropic PBC.  OpenAI, ChatGPT,
+        and Codex are trademarks of OpenAI.  Java is a registered trademark of Oracle and/or its
+        affiliates.  These names identify the software that SpannBridge works with.  SpannBridge
+        is not developed, endorsed, or sponsored by COMSOL AB, Anthropic PBC, or OpenAI.
+        Spann Engineering Consulting LLC is a
+        <a href="https://www.comsol.com/partners-consultants/certified-consultants" target="_blank" rel="noopener">COMSOL Certified Consultant</a>.
+        That certification does not mean that COMSOL AB authorized, sponsored, or approved
+        SpannBridge.  Andrew Spann, the founder and owner of Spann Engineering Consulting LLC,
+        created SpannBridge.  Spann.AI is the brand name of Spann Engineering Consulting LLC.
+      </p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="../index.html">Home</a>
+        <a href="../ai-simulation.html">AI &amp; Simulation</a>
+        <a href="../nanotechnology.html">Nanotech</a>
+        <a href="../energy.html">Clean Energy</a>
+        <a href="../medical.html">Medical</a>
+        <a href="../mcm.html">MCM</a>
+        <a href="../about.html">About</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+      <div class="footer-meta">
+        <span>&copy; 2026 Spann Engineering Consulting LLC</span>
+        <span class="sep" aria-hidden="true">&middot;</span>
+        <a href="mailto:info@spann.ai">info@spann.ai</a>
+        <span class="sep" aria-hidden="true">&middot;</span>
+        <a href="../privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
