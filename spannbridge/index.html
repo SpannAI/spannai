@@ -64,6 +64,11 @@
           SpannBridge is a helper for the Chatbot window, not an agent.  It never operates COMSOL Multiphysics&reg; by itself.
           Nothing in your model changes until you click <strong>Send to Java Shell</strong> and <strong>Run</strong>.
         </p>
+        <figure style="margin: 1.75rem auto 0; max-width: 540px;">
+          <img src="../assets/spannbridge-diagram.png" width="1080" height="1350"
+               style="display: block; width: 100%; height: auto; border: 1px solid var(--border); border-radius: 12px;"
+               alt="Diagram: the Chatbot in COMSOL Multiphysics&reg; 6.4 sends each question to SpannBridge on the user's own PC.  SpannBridge passes it to Claude Code (claude -p), signed in with the user's Claude subscription, or to OpenAI Codex (codex app-server), signed in with the user's ChatGPT plan.  The question then goes to Anthropic or OpenAI.  Replies stream back into the Chatbot window, and nothing goes to Spann Engineering Consulting LLC.">
+        </figure>
       </section>
 
       <section>
